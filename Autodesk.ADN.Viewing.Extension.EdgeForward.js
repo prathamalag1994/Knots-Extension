@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
-// Edge Back viewer Extension
-// Double click on the object to edge back
+// Edge Forward viewer Extension
+// Double click on the object to edge forward
 //
 
 
@@ -9,14 +9,14 @@
 /*
 
     // load the extension
-    viewer.loadExtension('Autodesk.ADN.Viewing.Extension.EdgeB');
+    viewer.loadExtension('Autodesk.ADN.Viewing.Extension.EdgeForward');
 
 */
 
 ///////////////////////////////////////////////////////////////////////////////
 AutodeskNamespace("Autodesk.ADN.Viewing.Extension");
 
-Autodesk.ADN.Viewing.Extension.EdgeB = function (viewer, options) {
+Autodesk.ADN.Viewing.Extension.EdgeForward = function (viewer, options) {
 
     // base constructor
     Autodesk.Viewing.Extension.call(this, viewer, options);
@@ -41,7 +41,7 @@ Autodesk.ADN.Viewing.Extension.EdgeB = function (viewer, options) {
     ///////////////////////////////////////////////////////////////////////////
     _self.load = function () {
 
-        console.log("Autodesk.ADN.Viewing.Extension.EdgeB loaded");
+        console.log("Autodesk.ADN.Viewing.Extension.EdgeForward loaded");
 
         _viewer.addEventListener(
             Autodesk.Viewing.SELECTION_CHANGED_EVENT,
@@ -59,7 +59,7 @@ Autodesk.ADN.Viewing.Extension.EdgeB = function (viewer, options) {
     ///////////////////////////////////////////////////////////////////////////
     _self.unload = function () {
 
-        console.log("Autodesk.ADN.Viewing.Extension.EdgeB unloaded");
+        console.log("Autodesk.ADN.Viewing.Extension.EdgeForward unloaded");
 
         _viewer.removeEventListener(
             Autodesk.Viewing.SELECTION_CHANGED_EVENT,
@@ -166,9 +166,9 @@ Autodesk.ADN.Viewing.Extension.EdgeB = function (viewer, options) {
 
                     var mtx_for_method1 = mesh.matrixWorld.elements;
  
-                    mtx_for_method1[12] -= 1;
-                    mtx_for_method1[13] -= 1;
-                    mtx_for_method1[14] -= 1;
+                    mtx_for_method1[12] += 1;
+                    mtx_for_method1[13] += 1;
+                    mtx_for_method1[14] += 1;
                     mtx_for_method1.matrixWorldNeedsUpdate = true;
                     mesh.matrixWorld.elements = mtx_for_method1;
   
@@ -339,13 +339,13 @@ Autodesk.ADN.Viewing.Extension.EdgeB = function (viewer, options) {
     }
 };
 
-Autodesk.ADN.Viewing.Extension.EdgeB.prototype =
+Autodesk.ADN.Viewing.Extension.EdgeForward.prototype =
     Object.create(Autodesk.Viewing.Extension.prototype);
 
-Autodesk.ADN.Viewing.Extension.EdgeB.prototype.constructor =
-    Autodesk.ADN.Viewing.Extension.EdgeB;
+Autodesk.ADN.Viewing.Extension.EdgeForward.prototype.constructor =
+    Autodesk.ADN.Viewing.Extension.EdgeForward;
 
 Autodesk.Viewing.theExtensionManager.registerExtension(
-    'Autodesk.ADN.Viewing.Extension.EdgeB',
-    Autodesk.ADN.Viewing.Extension.EdgeB);
+    'Autodesk.ADN.Viewing.Extension.EdgeForward',
+    Autodesk.ADN.Viewing.Extension.EdgeForward);
 
