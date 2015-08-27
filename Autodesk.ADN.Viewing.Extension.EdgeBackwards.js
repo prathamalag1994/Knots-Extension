@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////
-// Edge Forward viewer Extension
+// Edge Backwards viewer Extension
 // Double click on the object to edge backwards
 //
 
